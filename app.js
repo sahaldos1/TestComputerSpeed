@@ -59,15 +59,20 @@ function getInfo(time, Score) {
   console.log(browser);
 
   //get number of CPU cores
-  let cores = navigator.hardwareConcurrency;
+  let cores = navigator.hardwareConcurrency + "";
   console.log(cores);
 
   //get RAM
   let ram = navigator.deviceMemory + " GB";
   console.log(ram);
 
-  let downloadSpeed;
-  let latency;
+  //get download speed
+  let downloadSpeed = navigator.connection.downlink + " Mb/s";
+  console.log(downloadSpeed);
+
+  //get latency
+  let latency = navigator.connection.rtt + " msec";
+  console.log(latency);
 }
 
 //function to check if a number is prime
