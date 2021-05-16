@@ -48,7 +48,26 @@ function getInfo(time, Score) {
   let dateTime = time;
   let score = Score;
 
-  let ip;
+  // fetch("https://api.ipify.org?format=json")
+  //   .then(function (result) {
+  //     return result.json();
+  //   })
+  //   .then(function (json) {
+  //     data_function(json); //calling and passing json to another function
+  //   });
+
+  // fetch("https://api.ipify.org?format=json")
+  //   .then((res) => res.json())
+  //   .then((data) => (ipAddress = data.ip))
+  //   .then(() => {
+  //     console.log(ipAddress);
+  //     ipAddress = ipAddress;
+  //     console.log("apples");
+  //     console.log("ip " + ipAddress);
+  //   });
+
+  let ipAddress = request();
+  console.log(ipAddress);
 
   //get OS
   let os = getOS();
@@ -90,6 +109,13 @@ function isPrimeNumber(n) {
     return true;
   }
 }
+
+const request = async () => {
+  const response = await fetch("https://api.ipify.org?format=json");
+  const json = await response.json();
+  console.log("inside function" + json.ip);
+  return json.ip;
+};
 
 //function to get users OS
 function getOS() {
