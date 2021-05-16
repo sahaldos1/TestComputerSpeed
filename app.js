@@ -58,7 +58,9 @@ function getInfo(time, Score) {
   let browser = getBrowser();
   console.log(browser);
 
-  let cores;
+  //get number of CPU cores
+  let cores = navigator.hardwareConcurrency;
+  console.log(cores);
   let ram;
   let downloadSpeed;
   let latency;
