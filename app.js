@@ -61,7 +61,11 @@ function getInfo(time, Score) {
   //get number of CPU cores
   let cores = navigator.hardwareConcurrency;
   console.log(cores);
-  let ram;
+
+  //get RAM
+  let ram = navigator.deviceMemory + " GB";
+  console.log(ram);
+
   let downloadSpeed;
   let latency;
 }
