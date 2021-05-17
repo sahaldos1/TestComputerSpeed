@@ -1,0 +1,27 @@
+create table records (
+    id int(11) not null PRIMARY KEY AUTO_INCREMENT,
+    DATE_TIME varchar(100) not null,
+    Score varchar(100) not null,
+    IP varchar(20) not null,
+    OS varchar(10) not null,
+    Browser varchar(20) not null,
+    CPU_Cores varchar(20) not null,
+    Ram varchar(20) not null,
+    Download_Speed varchar(20) not null,
+    latency varchar(25) not null
+);
+
+
+
+
+insert into records (DATE_TIME, Score, IP, OS, Browser, CPU_Cores, Ram, Download_Speed, latency) VALUES (
+	'2021-5-13 11:03:00',
+    '5',
+    '255.255.255.255',
+    'Win',
+    'Chrome',
+    '12',
+    '8 GB',
+    '10 Mbps',
+    '50 msec'
+);

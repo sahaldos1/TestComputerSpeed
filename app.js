@@ -46,7 +46,20 @@ function startTest() {
 function getInfo(time, Score) {
   //time and score are passed in
   let dateTime = time;
+
+  $.ajax({
+    url: "send.php",
+    method: "POST",
+    data: { dateTime: dateTime },
+  });
+
   let score = Score;
+
+  $.ajax({
+    url: "send.php",
+    method: "POST",
+    data: { score: score },
+  });
 
   // fetch("https://api.ipify.org?format=json")
   //   .then(function (result) {
@@ -74,29 +87,73 @@ function getInfo(time, Score) {
     console.log("check here" + a);
   });
 
+  ipAddress = "255.213.134.89";
+
+  $.ajax({
+    url: "send.php",
+    method: "POST",
+    data: { ipAddress: ipAddress },
+  });
+
   //get OS
   let os = getOS();
   console.log(os);
+
+  $.ajax({
+    url: "send.php",
+    method: "POST",
+    data: { os: os },
+  });
 
   //get users browser
   let browser = getBrowser();
   console.log(browser);
 
+  $.ajax({
+    url: "send.php",
+    method: "POST",
+    data: { browser: browser },
+  });
+
   //get number of CPU cores
   let cores = navigator.hardwareConcurrency + "";
   console.log(cores);
+
+  $.ajax({
+    url: "send.php",
+    method: "POST",
+    data: { cores: cores },
+  });
 
   //get RAM
   let ram = navigator.deviceMemory + " GB";
   console.log(ram);
 
+  $.ajax({
+    url: "send.php",
+    method: "POST",
+    data: { ram: ram },
+  });
+
   //get download speed
   let downloadSpeed = navigator.connection.downlink + " Mb/s";
   console.log(downloadSpeed);
 
+  $.ajax({
+    url: "send.php",
+    method: "POST",
+    data: { downloadSpeed: downloadSpeed },
+  });
+
   //get latency
   let latency = navigator.connection.rtt + " msec";
   console.log(latency);
+
+  $.ajax({
+    url: "send.php",
+    method: "POST",
+    data: { latency: latency },
+  });
 }
 
 //function to check if a number is prime
