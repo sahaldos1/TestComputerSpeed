@@ -79,6 +79,7 @@
                     document.getElementById("table-div").style.display="none";
                 }
 
+
                    if (key == 'getResults'){
                     $("tbody").children().remove()
 
@@ -90,13 +91,13 @@
             });
         }
 
-        function showResults(){
-            if (document.getElementById("displaytable").style.display === "none"){
-                document.getElementById("displaytable").style.display="block";
-            } else {
-                document.getElementById("displaytable").style.display="none";
-            }
-        }
+        // function showResults(){
+        //     if (document.getElementById("displaytable").style.display === "none"){
+        //         document.getElementById("displaytable").style.display="block";
+        //     } else {
+        //         document.getElementById("displaytable").style.display="none";
+        //     }
+        // }
     </script>
 </body>
 </html>

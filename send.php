@@ -1,6 +1,6 @@
 <?php
 
-require 'connection.php';
+include_once('connection.php');
 
 
   $dateTime = $_POST['dateTime'];
@@ -12,6 +12,7 @@ require 'connection.php';
 	$ram = $_POST['ram'];
 	$downloadSpeed = $_POST['downloadSpeed'];
   $latency = $_POST['latency'];
+  
   
   
 
@@ -26,9 +27,16 @@ require 'connection.php';
       '$downloadSpeed',
       '$latency'
   );";
+
+
+
   
 
+
   $conn->query($sql);
+
+  debug_print_backtrace() 
+
 
 
 	

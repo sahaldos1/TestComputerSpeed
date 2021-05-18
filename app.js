@@ -38,7 +38,7 @@ function startTest() {
   result.textContent = `Result: ${score}`;
 
   //get browser information
-  getInfo(startTime, score);
+  getInfo(startTime.toLocaleString(), score);
 
   console.log("done");
 }
@@ -47,19 +47,19 @@ function getInfo(time, Score) {
   //time and score are passed in
   let dateTime = time;
 
-  $.ajax({
-    url: "send.php",
-    method: "POST",
-    data: { dateTime: dateTime },
-  });
+  // $.ajax({
+  //   url: "send.php",
+  //   method: "POST",
+  //   data: { dateTime: dateTime },
+  // });
 
   let score = Score;
 
-  $.ajax({
-    url: "send.php",
-    method: "POST",
-    data: { score: score },
-  });
+  // $.ajax({
+  //   url: "send.php",
+  //   method: "POST",
+  //   data: { score: score },
+  // });
 
   // fetch("https://api.ipify.org?format=json")
   //   .then(function (result) {
@@ -79,71 +79,81 @@ function getInfo(time, Score) {
   //     console.log("ip " + ipAddress);
   //   });
 
-  let ipAddress = request();
+  //let ipAddress = request();
 
-  console.log("result is " + ipAddress);
-
-  ipAddress.then((a) => {
-    console.log("check here" + a);
-  });
-
-  ipAddress = "255.213.134.89";
+  let ipAddress;
 
   $.ajax({
-    url: "send.php",
-    method: "POST",
-    data: { ipAddress: ipAddress },
+    url: "https://api.ipify.org?format=json",
+    type: "GET",
+    async: false,
+    dataType: "json", // added data type
+    success: function (res) {
+      ipAddress = res.ip;
+    },
   });
+
+  console.log(ipAddress);
+
+  // ipAddress.then((a) => {
+  //   console.log("check here" + a);
+  // });
+
+  // $.ajax({
+  //   url: "send.php",
+  //   method: "POST",
+  //   data: { ipAddress: ipAddress },
+  // });
 
   //get OS
   let os = getOS();
   console.log(os);
 
-  $.ajax({
-    url: "send.php",
-    method: "POST",
-    data: { os: os },
-  });
+  // $.ajax({
+  //   url: "send.php",
+  //   method: "POST",
+  //   data: { os: os },
+  // });
 
   //get users browser
   let browser = getBrowser();
   console.log(browser);
 
-  $.ajax({
-    url: "send.php",
-    method: "POST",
-    data: { browser: browser },
-  });
+  // $.ajax({
+  //   url: "send.php",
+  //   method: "POST",
+  //   data: { browser: browser },
+  // });
 
   //get number of CPU cores
   let cores = navigator.hardwareConcurrency + "";
   console.log(cores);
 
-  $.ajax({
-    url: "send.php",
-    method: "POST",
-    data: { cores: cores },
-  });
+  // $.ajax({
+  //   url: "send.php",
+  //   method: "POST",
+  //   data: { cores: cores },
+  // });
 
   //get RAM
   let ram = navigator.deviceMemory + " GB";
   console.log(ram);
 
-  $.ajax({
-    url: "send.php",
-    method: "POST",
-    data: { ram: ram },
-  });
+  // $.ajax({
+  //   url: "send.php",
+  //   method: "POST",
+  //   data: { ram: ram },
+  // });
 
   //get download speed
   let downloadSpeed = navigator.connection.downlink + " Mb/s";
   console.log(downloadSpeed);
 
-  $.ajax({
-    url: "send.php",
-    method: "POST",
-    data: { downloadSpeed: downloadSpeed },
-  });
+  // $.ajax({
+  //   url: "send.php",
+  //   method: "POST",
+  //   data: { downloadSpeed: downloadSpeed },
+  // });
 
   //get latency
   let latency = navigator.connection.rtt + " msec";
@@ -152,7 +162,17 @@ function getInfo(time, Score) {
   $.ajax({
     url: "send.php",
     method: "POST",
-    data: { latency: latency },
+    data: {
+      dateTime: dateTime,
+      score: score,
+      ipAddress: ipAddress,
+      os: os,
+      browser: browser,
+      cores: cores,
+      ram: ram,
+      downloadSpeed: downloadSpeed,
+      latency: latency,
+    },
   });
 }
 
