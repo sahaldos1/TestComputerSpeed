@@ -34,11 +34,6 @@ include_once('connection.php');
 
 
   $conn->query($sql);
-
-  debug_print_backtrace() 
-
-
-
 	
 
   

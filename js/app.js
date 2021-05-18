@@ -40,6 +40,8 @@ function startTest() {
   //get browser information
   getInfo(startTime.toLocaleString(), score);
 
+  showData("getResults");
+
   console.log("done");
 }
 
