@@ -184,7 +184,7 @@ function isPrimeNumber(n) {
   } else if (n === 2) {
     return true;
   } else {
-    for (var x = 2; x < n; x++) {
+    for (var x = 2; x <= n / 2; x++) {
       if (n % x === 0) {
         return false;
       }
