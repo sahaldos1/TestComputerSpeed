@@ -186,10 +186,10 @@ function isPrimeNumber(n) {
   } else {
     for (var x = 2; x < n; x++) {
       if (n % x === 0) {
-        return true;
+        return false;
       }
     }
-    return false;
+    return true;
   }
 }
 
