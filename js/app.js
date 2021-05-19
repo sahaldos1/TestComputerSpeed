@@ -27,7 +27,6 @@ function startTest() {
       if (isPrimeNumber(n) === true) {
         score++;
       }
-      score++;
       n++;
     } else {
       stop = true;
@@ -187,10 +186,10 @@ function isPrimeNumber(n) {
   } else {
     for (var x = 2; x < n; x++) {
       if (n % x === 0) {
-        return false;
+        return true;
       }
     }
-    return true;
+    return false;
   }
 }
 
